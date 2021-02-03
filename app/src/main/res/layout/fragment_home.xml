@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".Home">
+
+    <!-- Display User's First Name -->
+
+   <LinearLayout
+
+       android:layout_marginTop="10dp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       android:gravity="center_vertical"
+       >
+
+       <TextView
+           android:text="hey"
+           style="@style/UserFirstName"
+
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           />
+       <TextView
+           android:layout_marginLeft="5dp"
+           android:text="Man"
+           style="@style/UserFirstName"
+           android:textColor="@color/black"
+
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:gravity="center_vertical"
+           />
+
+
+   </LinearLayout>
+    
+    <!-- Category -->
+
+    <TextView
+        android:text="@string/category"
+        style="@style/Heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        >
+        <ImageView
+            android:id="@+id/fruit_category"
+            android:padding="10dp"
+            android:src="@drawable/fruits"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/category_item_bg"
+            android:layout_margin="5dp"
+            />
+        <ImageView
+            android:id="@+id/veggies_category"
+
+            android:padding="10dp"
+            android:src="@drawable/veg"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/category_item_bg"
+            android:layout_margin="5dp"
+            />
+        <ImageView
+            android:id="@+id/juices_category"
+
+            android:padding="10dp"
+            android:src="@drawable/juices"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/category_item_bg"
+            android:layout_margin="5dp"
+            />   <ImageView
+        android:id="@+id/spices_category"
+
+        android:padding="10dp"
+        android:src="@drawable/spices"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/category_item_bg"
+        android:layout_margin="5dp"
+        />
+    </LinearLayout>
+
+
+    
+    <!-- Popular Item -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/popular_item"
+        style="@style/Heading"/>
+    
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:id="@+id/PopularItemCard"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@drawable/popular_item_card"
+        >
+
+        <ImageView
+            android:src="@drawable/strawberry"
+            android:id="@+id/PopularItemImage"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            />
+
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+                <TextView
+                    android:id="@+id/PopularItemName"
+                    android:textColor="@color/black"
+                    android:text="Apple"
+                    style="@style/ItemName"
+                    android:textSize="25sp"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    />
+
+                <TextView
+                    android:id="@+id/PopularItemRating"
+                    android:text="4.5"
+                    android:drawableLeft="@drawable/ic_baseline_star_24"
+                    style="@style/ItemName"
+                    android:drawableTint="@android:color/holo_red_light"
+                    android:textColor="@android:color/holo_red_light"
+                    android:gravity="center_vertical"
+                    android:textSize="25sp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="1kg"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:textColor="@color/green_dark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <android.widget.Button
+                    android:id="@+id/atcPopularItem"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/atc"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:background="@drawable/add_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+<!--    Top Items -->
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/topItem"
+        style="@style/Heading"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="10dp"
+        android:id="@+id/TopItemsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+
+
+</LinearLayout>

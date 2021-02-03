@@ -1,0 +1,35 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.GroceryApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryVariant">@color/green_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@android:color/holo_red_light</item>
+        <item name="colorSecondaryVariant">@android:color/holo_red_dark</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="UserFirstName">
+        <item name="android:textSize">20sp</item>
+        <item name="fontFamily">@font/ubuntu</item>
+    </style>
+    <style name="Heading">
+        <item name="android:textSize">25sp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:fontFamily">@font/ubuntu</item>
+        <item name="android:textColor">@color/green_dark</item>
+    </style>
+    <style name="ItemName">
+        <item name="fontFamily">@font/ubuntu</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="color">@color/black</item>
+    </style>
+    <style name="ItemDescription">
+        <item name="fontFamily">@font/poppins</item>
+    </style>
+</resources>

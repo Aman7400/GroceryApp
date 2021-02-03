@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:background="@color/green_light"
+
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".CheckOut">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Amount : "
+            style="@style/Heading"
+            android:textColor="@color/green_dark"
+            android:gravity="left"
+            android:textSize="30sp"
+
+            />
+        <TextView
+            android:id="@+id/PayableAmount"
+            android:layout_marginLeft="150dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\u20b91000"
+            android:gravity="right"
+            android:textColor="@color/black"
+            style="@style/Heading"
+            android:textSize="25sp"
+
+            />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Add Delivery Address"
+        style="@style/Heading"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:inputType="number"
+        android:hint="@string/pincode"
+        android:fontFamily="@font/poppins"
+        android:id="@+id/pincode"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:hint="@string/state"
+            android:paddingLeft="10dp"
+android:inputType="textPostalAddress"
+            android:fontFamily="@font/poppins"
+            android:id="@+id/state"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:minWidth="150sp"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:hint="City*"
+            android:inputType="textPostalAddress"
+            android:paddingLeft="10dp"
+            android:fontFamily="@font/poppins"
+            android:id="@+id/city"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:minWidth="150sp"
+            android:layout_height="wrap_content"/>
+
+
+
+    </LinearLayout>
+
+    <EditText
+        android:hint="@string/house_no_building_name"
+        android:fontFamily="@font/poppins"
+        android:id="@+id/AddressLine1"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:hint="Road Name, Area, Colony*"
+        android:fontFamily="@font/poppins"
+        android:id="@+id/AddressLine2"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Heading"
+
+        android:text="@string/payment_options"/>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:text="Credit / Debit Cards"/>
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="UPIs"/>
+
+            <RadioButton
+                android:textSize="20sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cash_on_delivery"/>
+
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <android.widget.Button
+        android:layout_marginTop="100dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="Pay"
+        android:background="@android:color/holo_red_light"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:id="@+id/pay"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/ubuntu">
+
+    </android.widget.Button>
+
+
+
+
+</LinearLayout>

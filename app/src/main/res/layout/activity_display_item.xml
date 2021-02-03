@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical"
+    tools:context=".DisplayItem">
+
+    <ImageView
+        android:layout_marginTop="50dp"
+        android:id="@+id/ItemImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/strawberry"
+        />
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            android:paddingLeft="10dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+android:id="@+id/ItemName"
+            android:text="Apple"
+            android:textColor="@color/green_dark"
+            style="@style/ItemName"
+            android:textSize="40sp"
+            />
+        <TextView
+            android:id="@+id/ItemRating"
+            android:text="4.5"
+            android:drawableLeft="@drawable/ic_baseline_star_24"
+            style="@style/ItemName"
+            android:gravity="center_vertical"
+            android:textSize="25sp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/green"
+            android:drawableTint="@color/green"
+
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/ItemDescription"
+        android:paddingLeft="10dp"
+        style="@style/ItemDescription"
+        android:text="@string/strawberry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/ItemPrice"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu"
+            android:textColor="@color/black"
+
+
+            android:gravity="left"
+            android:paddingLeft="25dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="\u20B949"
+            android:textSize="30dp"
+
+            />
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/ubuntu"
+            android:gravity="center"
+
+
+
+            >
+
+            <android.widget.Button
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="-"
+                android:background="@android:color/holo_orange_light"
+                android:id="@+id/DecreaseItemQuantity"
+                android:textSize="30sp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="5dp"
+                >
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical|right"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/ubuntu"
+                    android:id="@+id/ItemQuantity"
+                    android:text="1"
+                    />
+                <TextView
+                    android:layout_marginRight="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/ubuntu"
+                    android:text="kg"
+                    />
+
+            </LinearLayout>
+            <android.widget.Button
+                android:layout_width="50dp"
+                android:text="+"
+                android:background="@android:color/holo_orange_light"
+                android:textSize="30sp"
+                android:id="@+id/IncreaseItemQuantity"
+
+                android:layout_height="wrap_content"/>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            >
+            <TextView
+                android:text="@string/u20b9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="35sp"
+                android:textColor="@color/green"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="49"
+                android:fontFamily="@font/ubuntu"
+                android:textSize="35sp"
+                android:id="@+id/TotalItemCost"
+                android:textColor="@color/green"
+
+                android:gravity="center_vertical|left"
+                />
+
+        </LinearLayout>
+        <android.widget.Button
+
+            android:layout_weight="2"
+            android:gravity="center"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:text="@string/atc"
+            android:layout_height="match_parent"
+            android:paddingLeft="20dp"
+            android:background="@drawable/add_button"
+            android:drawableLeft="@drawable/ic_baseline_shopping_bag_24"
+            android:drawableTint="@color/white"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:id="@+id/atc"
+
+            />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

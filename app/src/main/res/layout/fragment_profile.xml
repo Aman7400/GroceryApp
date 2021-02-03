@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:background="@drawable/profile"
+    android:gravity="center"
+    tools:context=".Profile">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile"
+        style="@style/Heading"
+        android:textSize="30sp"
+        android:textColor="@color/green_dark"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:id="@+id/profileName"
+        android:text="Aman Shukla"
+        android:textColor="@color/black"
+        android:fontFamily="@font/ubuntu"
+        android:textSize="20sp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:id="@+id/profileEmail"
+        android:text="amanks7400@gmail.com"
+        android:textStyle="italic"
+        android:fontFamily="@font/poppins"
+        />
+
+    <TextView
+        android:id="@+id/orders"
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Orders"
+        style="@style/Heading"
+        android:textSize="25sp"
+        />
+    <TextView
+        android:id="@+id/address"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Address Book"
+    style="@style/Heading"
+    android:textSize="25sp"
+    />
+    <TextView
+        android:id="@+id/about"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="About Us"
+    style="@style/Heading"
+    android:textSize="25sp"
+    />
+
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:id="@+id/logoutUser"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log Out"
+        android:textColor="@color/white"
+        android:fontFamily="@font/ubuntu"
+        android:background="@drawable/add_button"
+        style="@style/Heading"
+        android:textSize="10sp"
+        />
+
+
+
+
+
+
+
+</LinearLayout>

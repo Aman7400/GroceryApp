@@ -1,0 +1,157 @@
+<resources>
+    <string name="app_name">Grocery App</string>
+    <string name="home">Home</string>
+    <string name="cart">Cart</string>
+    <string name="profile">Profile</string>
+    <string name="category">Category</string>
+    <string name="topItem">Top Items</string>
+    <string name="atc">Add to Cart</string>
+    <string name="popular_item">Popular Item</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <!-- Prices -->
+    <integer-array name="FruitsPrices">
+        <item>100</item>
+        <item>200</item>
+        <item>300</item>
+        <item>400</item>
+        <item>500</item>
+
+    </integer-array>
+    <integer-array name="VeggiesPrices">
+        <item>600</item>
+        <item>700</item>
+        <item>800</item>
+        <item>900</item>
+        <item>1000</item>
+
+    </integer-array>
+
+    <integer-array name="JuicesPrices">
+        <item>100</item>
+        <item>200</item>
+        <item>300</item>
+        <item>400</item>
+        <item>500</item>
+
+    </integer-array>
+
+    <integer-array name="SpicesPrices">
+        <item>600</item>
+        <item>700</item>
+        <item>800</item>
+        <item>900</item>
+        <item>1000</item>
+
+    </integer-array>
+
+
+    <!-- Rating -->
+    <string name="TopRating">  4.9 </string>
+    <string-array name="Rating">
+        <item>4.1</item>
+        <item>4.2</item>
+        <item>4.3</item>
+        <item>4.4</item>
+        <item>4.5</item>
+    </string-array>
+    <!-- Fruits -->
+    <string-array name="Fruits">
+        <item>Apple</item>
+        <item>Guava</item>
+        <item>Orange</item>
+        <item>Grapes</item>
+        <item>Watermelon</item>
+    </string-array>
+
+    <!-- Veggies -->
+    <string-array name="Veggies">
+        <item>Tomato</item>
+        <item>Potato</item>
+        <item>Ginger</item>
+        <item>Garlic</item>
+        <item>Carrot</item>
+    </string-array>
+
+    <!-- Juices -->
+    <string-array name="Juices">
+
+        <item>Orange</item>
+        <item>Apple</item>
+        <item>Lemon</item>
+        <item>Carrot</item>
+
+    </string-array>
+    <!-- Spices -->
+    <string-array name="Spices">
+        <item>Turmeric</item>
+        <item>Cumin</item>
+        <item>Cinnamon</item>
+        <item>Cardamom</item>
+    </string-array>
+    <!-- Top Rated Item -->
+    <string-array name="TopRatedItems">
+        <item>Apple</item>
+        <item>Potato</item>
+        <item>Cinnamon</item>
+        <item>Cardamom</item>
+        <item>Guava</item>
+        <item>Garlic</item>
+        <item>Carrot</item>
+
+    </string-array>
+
+    <!-- Top Rated Prices -->
+    <integer-array name="TopRatedPrices">
+        <item>100</item>
+        <item>200</item>
+        <item>300</item>
+        <item>400</item>
+        <item>500</item>
+        <item>600</item>
+        <item>700</item>
+        <item>800</item>
+
+    </integer-array>
+
+
+    <!-- Popular  Item -->
+    <string-array name="PopularItems">
+        <item>Apple</item>
+        <item>Cinnamon</item>
+        <item>Tomato</item>
+        <item>Carrot</item>
+
+    </string-array>
+    <!-- Popular Item Prices -->
+    <integer-array name="PopularItemPrices">
+        <item>100</item>
+        <item>200</item>
+        <item>300</item>
+        <item>400</item>
+
+    </integer-array>
+
+    <!--   Top Item Description-->
+    <string name="strawberry">
+        The sweet, slightly tart berries have powerful antioxidant content and do not rapidly boost a person’s blood sugar, making them an ideal choice for those who have diabetes, and a safe, delicious addition to any diet.
+    </string>
+    <string name="u20b9">₹</string>
+    <string name="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</string>
+    <string name="payment_options">Payment Options</string>
+    <string name="cash_on_delivery">Cash on Delivery</string>
+    <string name="payable_amount">Payable Amount</string>
+    <string name="payable_amount_">Payable Amount :</string>
+    <string name="pincode">Pincode*</string>
+    <string name="state">State*</string>
+    <string name="house_no_building_name">House No., Building Name*</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+</resources>
