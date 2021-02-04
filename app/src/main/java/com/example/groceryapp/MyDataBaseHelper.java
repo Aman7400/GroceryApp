@@ -5,9 +5,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MyDataBaseHelper extends SQLiteOpenHelper {
 
@@ -21,6 +25,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
     private static final String COL_ID = "id";
     private static final String COL_ITEM_NAME = "Item_Name";
     private static final String COL_COST = "Total_Cost";
+    private static final  String COL_USER_ID = "User_Id";
 
 
     public MyDataBaseHelper(@Nullable Context context) {
@@ -33,7 +38,8 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
 
         String query = "CREATE TABLE " + TABLE_NAME + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                         + COL_ITEM_NAME + " TEXT, " +
-                        COL_COST + " INTEGER);";
+                        COL_COST + " INTEGER, " +
+                COL_USER_ID + " TEXT);";
 
         db.execSQL(query);
 
@@ -50,12 +56,14 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
     public void AddItems(String ItemName, int ItemCost){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
+        cv.put(COL_USER_ID, FirebaseAuth.getInstance().getUid());
         cv.put(COL_ITEM_NAME,ItemName);
         cv.put(COL_COST,ItemCost);
 
         long result  =  db.insert(TABLE_NAME,null,cv);
 
         if(result == -1){
+            Log.d("fail","Item Addition Failed");
             Toast.makeText(context, "Item Addition Failed", Toast.LENGTH_SHORT).show();
          } else{
             Toast.makeText(context, "Item Addition Successfully", Toast.LENGTH_SHORT).show();
@@ -66,13 +74,16 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
 
      Cursor ShowItems(){
 
-        String query = "SELECT * FROM " + TABLE_NAME;
+        String uid = FirebaseAuth.getInstance().getUid();
+//        String query = "SELECT * FROM " + TABLE_NAME + " ;";
+         String query = "SELECT * FROM orders";
+         String query2 = "SELECT * FROM orders WHERE User_Id = '" + FirebaseAuth.getInstance().getUid() + "' ;";
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = null;
 
         if(db != null){
-        cursor =   db.rawQuery(query,null);
+        cursor =   db.rawQuery(query2,null);
         }
 
         return  cursor;
@@ -94,7 +105,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
 
     void deleteAllItems(){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("delete from "+ TABLE_NAME);
+        db.execSQL("delete from "+ TABLE_NAME + " WHERE " + COL_USER_ID + " = '" + FirebaseAuth.getInstance().getUid() + "' ;" );
 
     }
 
@@ -102,7 +113,10 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         int total = 0;
 
-        Cursor cursor = db.rawQuery("SELECT SUM(" + COL_COST + ") as Total FROM " + TABLE_NAME, null);
+        Cursor cursor = db.rawQuery("SELECT SUM(" + COL_COST + " ) as Total FROM " + TABLE_NAME +
+               " WHERE " + COL_USER_ID + " = '" + FirebaseAuth.getInstance().getUid() +  "' ;",null);
+
+//        Cursor cursor = db.rawQuery("SELECT SUM(" + COL_COST + ") as Total FROM " + TABLE_NAME, null);
 
         if (cursor.moveToFirst()) {
 

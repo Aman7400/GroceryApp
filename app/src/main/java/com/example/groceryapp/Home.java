@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,22 +16,32 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Home extends Fragment {
 
     String [] TopItems,PopularItems;
-    String    TopItemsRating;
+    String  mUserID,  TopItemsRating;
     int [] TopItemsPrices,TopItemImages,PopularItemsPrices,PopularItemImages;
 
     Context context;
 
     RecyclerView TopItemsRecycleView;
     ImageView mFruits,mVeggies,mSpices,mJuices;
-    TextView mPopularItemName,mPopularItemRating;
+    TextView mFName,mPopularItemName,mPopularItemRating;
             ImageView mPopularItemImage;
     Button mAtcButton;
+
+    FirebaseFirestore db;
+    FirebaseAuth firebaseAuth;
 
 
     @Override
@@ -40,6 +51,28 @@ public class Home extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         context = getContext();
+        db = FirebaseFirestore.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        /* Set User's First Name */
+
+        mFName = view.findViewById(R.id.UserName);
+
+        mUserID = firebaseAuth.getUid();
+
+        db = FirebaseFirestore.getInstance();
+        DocumentReference documentReference = db.collection("users").document(mUserID);
+        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+
+               mFName .setText(value.getString("fName") );
+
+            }
+        });
+
+
+
 
         /* Set Category on Click */
         mFruits = view.findViewById(R.id.fruit_category);

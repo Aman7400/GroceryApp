@@ -15,11 +15,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class SignUp extends AppCompatActivity {
@@ -30,10 +35,11 @@ public class SignUp extends AppCompatActivity {
     private TextView mHelpText;
     private Button mSignUp;
     private FirebaseAuth firebaseAuth;
+    private FirebaseFirestore db;
     private ProgressBar progressBar;
 
 
-    String firstName, lastName, phoneNo, email, password;
+    String firstName, lastName, phoneNo, email, password, userId;
 
 
     @Override
@@ -55,6 +61,7 @@ public class SignUp extends AppCompatActivity {
 
         progressBar = findViewById(R.id.progressBar);
         firebaseAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
 
         /* Check if the User is logged in */
@@ -82,6 +89,10 @@ public class SignUp extends AppCompatActivity {
                     mMobileNo.setError("Mobile No is Required");
                     return;
                 }
+                if(phoneNo.length() != 10){
+                    mMobileNo.setError("Mobile No should be of 10 digits ");
+                    return;
+                }
 
                 if(TextUtils.isEmpty(email)){
                     mEmail.setError("Email is Required");
@@ -99,7 +110,29 @@ public class SignUp extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()){
-                                    Toast.makeText(context, "Account Created", Toast.LENGTH_SHORT).show();
+                                    /* Add User Profile in FireStore*/
+
+                                    userId = FirebaseAuth.getInstance().getUid();
+
+                                    DocumentReference documentReference = db.collection("users").document(userId);
+                                    Map <String, Object> users = new HashMap<>();
+                                    users.put("fName",firstName);
+                                    users.put("lName",lastName);
+                                    users.put("email",email);
+                                    users.put("phone",phoneNo);
+                                    documentReference.set(users).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            Toast.makeText(context, "Account Created", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(context, "User Creation Failed " + e.toString(), Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+
+
                                     startActivity(new Intent(context,MainActivity.class));
                                     finish();
 

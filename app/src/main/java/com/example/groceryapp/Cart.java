@@ -129,8 +129,7 @@ public class Cart extends Fragment {
             OrderedItemsName[i] = itemName.get(i);
 
         }
-//        Log.d("Ordered Items", "setPlaceOrder: "+ Arrays.toString(OrderedItemsName));
-        intent.putExtra("orderedItems",OrderedItemsName);
+        intent.putExtra("orderedItems",Arrays.toString(OrderedItemsName));
 
 
 

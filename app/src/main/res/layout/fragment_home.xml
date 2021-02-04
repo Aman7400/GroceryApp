@@ -28,6 +28,7 @@
        <TextView
            android:layout_marginLeft="5dp"
            android:text="Man"
+           android:id="@+id/UserName"
            style="@style/UserFirstName"
            android:textColor="@color/black"
 
